@@ -1,4 +1,4 @@
-import d64 from 'https://cdn.skypack.dev/d64'
+import { d64 } from '../deps.ts'
 import { sortedIndexOf } from './utils.ts'
 import { TaskQueue } from './taskqueue.ts'
 import { LocalCallback, LocalStorageCore } from './localstorage_core.ts'
@@ -72,7 +72,7 @@ export class LocalStorage {
         if (typeof retval === 'string') {
           if (retval.startsWith(arrayBuffPrefix)) {
             const d64str = retval.substring(arrayBuffPrefix.length)
-            result = new ArrayBuffer(d64.decode(d64str))
+            result = d64.decode(d64str).buffer
           } else if (retval.startsWith(uintPrefix)) {
             const d64str = retval.substring(uintPrefix.length)
             result = new Uint8Array(d64.decode(d64str))
