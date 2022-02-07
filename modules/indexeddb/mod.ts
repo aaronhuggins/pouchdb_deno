@@ -7,7 +7,10 @@ import { openDatabase, configureSQLiteDB } from '../websql/mod.ts'
 const setGlobalVars = indexeddbshim as (...args: any[]) => void
 
 function createIndexedDB (): IDBFactory {
-  setGlobalVars(null, { win: { openDatabase } })
+  setGlobalVars(null, {
+    checkOrigin: false,
+    win: { openDatabase }
+  })
 
   return indexedDB
 }
