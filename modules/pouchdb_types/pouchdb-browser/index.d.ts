@@ -6,7 +6,6 @@
 
 /// <reference types="../pouchdb-core/index.d.ts" />
 /// <reference types="../pouchdb-adapter-idb/index.d.ts" />
-/// <reference types="../pouchdb-adapter-websql/index.d.ts" />
 /// <reference types="../pouchdb-adapter-http/index.d.ts" />
 /// <reference types="../pouchdb-mapreduce/index.d.ts" />
 /// <reference types="../pouchdb-replication/index.d.ts" />

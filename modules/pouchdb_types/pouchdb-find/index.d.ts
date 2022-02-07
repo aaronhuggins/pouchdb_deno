@@ -76,7 +76,7 @@ declare namespace PouchDB {
         }
 
         interface Selector extends CombinationOperators {
-            [field: string]: Selector | Selector[] | ConditionOperators | any;
+            // [field: string]: Selector | Selector[] | ConditionOperators | any;
 
             _id?: string | ConditionOperators | undefined;
         }
