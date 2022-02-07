@@ -20,6 +20,7 @@ Port and/or export PouchDB for use with Deno.
 
 - [x] Export PouchDB and types
 - [x] Add WebSQL polyfill
+- [ ] Add tests for WebSQL polyfill
 - [ ] Add IndexedDB polyfill on top of WebSQL
 - [ ] ?? Port WebSQL PouchDB adapter
 - [ ] Port IndexedDB PouchDB adapter (best path, probably means continued maintenance from PouchDB team)
