@@ -6,6 +6,10 @@ const result = await db.post(doc)
 
 console.log(result)
 
+const getDoc = await db.get(result.id)
+
+console.log(getDoc)
+
 const docs = await db.allDocs()
 
 console.log(docs)
