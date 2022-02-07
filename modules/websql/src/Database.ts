@@ -12,16 +12,18 @@ export type TransactionCallback<T = any> = (tx: SQLTransaction<T>) => any
 export class Database {
   #name: string
   #version: string
+  #options: SqliteOptions
 
   constructor (name: string, version: string, _displayName: string, _estimatedSize: number) {
     this.#name = name
     this.#version = version
+    this.#options = options
   }
 
   #doTransaction<T = any> (txMode: Exclude<SqliteOptions['mode'], undefined>, callback: TransactionCallback<T>, errorCallback?: (err: any) => any, successCallback?: () => any) {
     queueMicrotask(() => {
       try {
-        const db = new SQLiteDB(this.#name, { ...options, mode: txMode })
+        const db = new SQLiteDB(this.#name, { ...this.#options, mode: txMode })
         const transaction = new SQLTransaction<T>(db)
 
         queueMicrotask(() => {
