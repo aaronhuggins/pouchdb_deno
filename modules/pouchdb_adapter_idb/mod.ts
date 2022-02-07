@@ -3,7 +3,7 @@ import { createIndexedDB, configureSQLiteDB } from '../indexeddb/mod.ts'
 import IDBPouchImpl from 'https://cdn.skypack.dev/pouchdb-adapter-idb@v7.2.2'
 
 configureSQLiteDB({ memory: false })
-createIndexedDB()
+createIndexedDB(true) // Make indexedDB interface globally available for PouchDB.
 
 const IDBPouchDeno: (pouchDb: PouchDB.Static) => void = IDBPouchImpl
 

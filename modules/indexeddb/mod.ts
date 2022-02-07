@@ -4,15 +4,26 @@ import 'https://cdn.skypack.dev/regenerator-runtime@0.13.9'
 import indexeddbshim from 'https://cdn.skypack.dev/indexeddbshim@v9.0.0/dist/indexeddbshim-noninvasive.js'
 import { openDatabase, configureSQLiteDB } from '../websql/mod.ts'
 
-const setGlobalVars = indexeddbshim as (...args: any[]) => void
+interface IDBShim {
+  readonly shimIndexedDB: {
+    __useShim: () => void
+  }
+  indexedDB: IDBFactory
+}
 
-function createIndexedDB (): IDBFactory {
-  setGlobalVars(null, {
+const setGlobalVars = indexeddbshim as (...args: any[]) => IDBShim
+
+function createIndexedDB (makeGlobal = false): IDBFactory {
+  const kludge = makeGlobal ? null : { shimIndexedDB: {} }
+  const idb = setGlobalVars(kludge, {
+    avoidAutoShim: !makeGlobal,
     checkOrigin: false,
     win: { openDatabase }
   })
 
-  return indexedDB
+  if (!makeGlobal) idb.shimIndexedDB.__useShim()
+
+  return idb.indexedDB
 }
 
 export {
