@@ -10,12 +10,12 @@ Ponyfill is the recommended module type, as this allows the use of IndexedDB wit
 
 **Persistent**
 ```javascript
-import { indexedDB } from './indexeddb/polyfill.ts'
+import { indexedDB } from './indexeddb/ponyfill.ts'
 ```
 
 **In-memory**
 ```javascript
-import { indexedDB } from './indexeddb/polyfill_memory.ts'
+import { indexedDB } from './indexeddb/ponyfill_memory.ts'
 ```
 
 ### Polyfill
