@@ -21,11 +21,7 @@ export class SQLTransaction<T = any> {
         })
       } catch (error) {
         queueMicrotask(() => {
-          if (callback && error === undefined) {
-            callback(this, new SQLResultSet())
-          } else {
-            if (errorCallback) errorCallback(this, error)
-          }
+          if (errorCallback) errorCallback(this, error)
         })
       }
     })

@@ -3,12 +3,6 @@ import { SQLTransaction } from './SQLTransaction.ts'
 import { SQLiteDB } from '../deps.ts'
 import type { SqliteOptions } from '../deps.ts'
 
-let options: SqliteOptions = {
-  memory: true
-}
-
-export type TransactionCallback<T = any> = (tx: SQLTransaction<T>) => any
-
 export class Database {
   #name: string
   #version: string
@@ -63,13 +57,23 @@ export class Database {
   }
 }
 
-export function configureSQLiteDB (customOptions: SqliteOptions = {}) {
+let options: SqliteOptions = {
+  memory: true
+}
+
+/** Mutates module options for underlying SQLiteDB implementation, and returns a clone of existing options. */
+export function configureSQLiteDB (customOptions: SqliteOptions = {}): SqliteOptions {
   options = {
     ...options,
     ...customOptions
   }
+
+  return structuredClone(options)
 }
 
+/** Implements the openDatabase function per the WebSQL spec. */
 export function openDatabase (name: string, version: string, displayName: string, estimatedSize: number) {
   return new Database(name, version, displayName, estimatedSize)
 }
+
+export type TransactionCallback<T = any> = (tx: SQLTransaction<T>) => any
