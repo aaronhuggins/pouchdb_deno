@@ -1,6 +1,6 @@
-## PouchDB for Deno
+# PouchDB for Deno
 
-PouchDB for Deno, leveraging polyfill for IndexedDB based on SQLite.
+[PouchDB](https://github.com/pouchdb/pouchdb) for Deno, leveraging polyfill for IndexedDB based on SQLite.
 
 ## Challenges
 
@@ -30,6 +30,6 @@ PouchDB for Deno, leveraging polyfill for IndexedDB based on SQLite.
 - [x] Port IndexedDB PouchDB adapter
 - [x] Add in-memory adapter
 - [x] Add examples
-- [ ] Add tests
-- [ ] Complete docs
-- [ ] Figure out versioning
+- [ ] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
+- [ ] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
+- [ ] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
