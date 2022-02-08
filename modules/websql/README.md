@@ -1,4 +1,4 @@
-# WebSQL Ponyfill
+# WebSQL for Deno
 
 A complete rewrite of [Philzen/WebSQL-Polyfill](https://github.com/Philzen/WebSQL-Polyfill), using [dyedgreen/deno-sqlite](https://github.com/dyedgreen/deno-sqlite) as the sql engine.
 
