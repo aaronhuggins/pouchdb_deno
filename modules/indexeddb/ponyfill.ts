@@ -1,4 +1,4 @@
-import { configureSQLiteDB, createIndexedDB } from './shim.ts'
+import { configureSQLiteDB, createIndexedDB } from './lib/shim.ts'
 
 configureSQLiteDB({ memory: false })
 const indexedDB = createIndexedDB()
