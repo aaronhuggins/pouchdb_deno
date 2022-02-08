@@ -1,4 +1,4 @@
-# IndexedDB Polyfill
+# IndexedDB for Deno
 
 A strongly-typed wrapper of [non-invasive IndexedDBShim v9.0.0](https://github.com/indexeddbshim/IndexedDBShim) to provide IndexedDB either as a ponyfill, or as polyfill in the globalThis scope.
 
