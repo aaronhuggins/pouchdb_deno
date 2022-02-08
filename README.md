@@ -33,3 +33,9 @@
 - [ ] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
 - [ ] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
 - [ ] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
+
+## Why?
+
+[I did this because I love PouchDB, thought I could get PouchDB working, and I was impatient.](https://github.com/pouchdb/pouchdb/issues/8158)
+
+![Thanos picks up Infinity Gauntlet; says "Fine, I'll do it myself."](https://thumbs.gfycat.com/BogusForsakenAsianlion-size_restricted.gif)
