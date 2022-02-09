@@ -15,5 +15,5 @@ const [measure] = performance.getEntriesByName('imports')
 
 await Deno.remove(REAL_TEMP_CACHE, { recursive: true })
 
-console.log('Duration of imports in seconds:', (measure.duration / 1000).toFixed(4))
-console.log('Duration of imports in milliseconds:', measure.duration.toFixed(4))
+console.log('Duration of imports in seconds:', (measure.duration / 1000).toFixed(3))
+console.log('Duration of imports in milliseconds:', measure.duration)

@@ -3,13 +3,13 @@ import { sleep } from './sleep.ts'
 
 export class REPL {
   #process: Deno.Process<{
-    cmd: ['deno']
+    cmd: string[]
     stdin: 'piped'
   }>
 
   constructor (env?: Record<string, string>) {
     this.#process = Deno.run({
-      cmd: ['deno'],
+      cmd: ['deno', '--quiet'],
       stdin: 'piped',
       env: env
     })
