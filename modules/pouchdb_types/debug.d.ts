@@ -12,7 +12,7 @@
 
 declare var debug: debug.Debug & { debug: debug.Debug; default: debug.Debug };
 
-export = debug;
+export default debug;
 export as namespace debug;
 
 declare namespace debug {
@@ -25,7 +25,7 @@ declare namespace debug {
         formatArgs: (this: Debugger, args: any[]) => void;
         log: (...args: any[]) => any;
         selectColor: (namespace: string) => string | number;
-        humanize: typeof import('../ms/index.d.ts');
+        humanize: typeof import('./ms.d.ts');
 
         names: RegExp[];
         skips: RegExp[];
