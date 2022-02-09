@@ -10,16 +10,19 @@
 
 ## What works
 
-**Out-of-the-box (and included in PouchDB for Deno) :**
+All working plugins are included in PouchDB for Deno.
+
+**Out-of-the-box:**
 
 - PouchDB-core imports into Deno without issue
 - HTTP/S instances appear to work using PouchDB-Server using the http plugin
 - PouchDB-Find plugin
 - PouchDB-MapReduce plugin
+- Replication
 
-**With work-arounds (only some parts included by default)**
+**With work-arounds:**
 
-- PouchDB-Adapter-IndexedDB (included in PouchdB for Deno)
+- PouchDB-Adapter-IndexedDB
 - PouchDB-Adapter-Memory
 
 ## Plan
@@ -30,7 +33,7 @@
 - [x] Port IndexedDB PouchDB adapter
 - [x] Add in-memory adapter
 - [x] Add examples
-- [ ] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
+- [x] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
 - [ ] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
 - [ ] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
 
