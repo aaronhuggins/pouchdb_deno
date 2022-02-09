@@ -1,5 +1,4 @@
 import { assertEquals } from 'https://deno.land/std@0.125.0/testing/asserts.ts'
-import { capturePlugin } from './capture_plugin.ts'
 
 Deno.test('capturePlugin', async ({ step }) => {
   // deno-lint-ignore no-explicit-any
@@ -7,11 +6,14 @@ Deno.test('capturePlugin', async ({ step }) => {
   const fakePouch = function fakePouch () {}
   const { name } = fakePouch
 
-  await step('should place fake PouchDB in global', () => {
+  await step('should place fake PouchDB in global', async () => {
+    globalAnyRef.PouchDB = {}
+    await import('./capture_plugin.ts')
     assertEquals(typeof globalAnyRef.PouchDB, 'object')
   })
 
-  await step('plugin sink should cache plugin', () => {
+  await step('plugin sink should cache plugin', async () => {
+    const { capturePlugin } = await import('./capture_plugin.ts')
     globalAnyRef.PouchDB.plugin(fakePouch)
 
     assertEquals(capturePlugin(name), fakePouch)
