@@ -5,7 +5,7 @@
 ## Usage
 
 ```typescript
-import PouchDB from '../modules/pouchdb/mod.ts'
+import PouchDB from 'https://deno.land/x/pouchdb_deno@v1.0.0-PouchDB+7.2.2/modules/pouchdb/mod.ts'
 
 // Use the 'idb' afapter for IndexedDB and persistence to disk.
 const db = new PouchDB('mydb', { adapter: 'idb' })
