@@ -1,4 +1,4 @@
-import PouchDBImpl from 'https://cdn.skypack.dev/pouchdb-core@7.2.2'
+import PouchDBImpl from 'https://cdn.skypack.dev/pin/pouchdb-core@v7.2.2-6nfR7P1D7GA03jBaX1mS/mode=imports/optimized/pouchdb-core.js'
 import HttpPouch from 'https://cdn.skypack.dev/pouchdb-adapter-http@7.2.2'
 import find from 'https://cdn.skypack.dev/pouchdb-find@7.2.2'
 import mapreduce from 'https://cdn.skypack.dev/pouchdb-mapreduce@7.2.2'

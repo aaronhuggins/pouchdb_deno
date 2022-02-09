@@ -1,5 +1,5 @@
 import { capturePlugin } from '../pouchdb_deno_utils/capture_plugin.ts'
-import 'https://cdn.skypack.dev/pouchdb@7.2.2/dist/pouchdb.memory.js'
+import 'https://cdn.skypack.dev/pin/pouchdb@v7.2.2-FZ4A3SJdMfxbHCP6VOPg/mode=imports/unoptimized/dist/pouchdb.memory.js'
 import type { PouchDB } from '../pouchdb_types/pouchdb.ts'
 
 // Because we're using the vanilla browser export, the Memory plugin expects
