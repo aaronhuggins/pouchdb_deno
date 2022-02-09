@@ -2,15 +2,30 @@
 
 [PouchDB](https://github.com/pouchdb/pouchdb) for Deno, leveraging polyfill for IndexedDB based on SQLite.
 
-## Challenges
+## Usage
 
-- LevelDOWN adapters use out-of-date readable-stream libraries which do not work in Deno
-- Complexity of writing adapters
-- IndexedDB and WebSQL do not exist in Deno (and only IndexedDB will be supported in the future)
+```typescript
+import PouchDB from '../modules/pouchdb/mod.ts'
 
-## What works
+// Use the 'idb' afapter for IndexedDB and persistence to disk.
+const db = new PouchDB('mydb', { adapter: 'idb' })
+const doc = { hello: 'world' }
+const result = await db.post(doc)
 
-All working plugins are included in PouchDB for Deno.
+console.log(result)
+
+const getDoc = await db.get(result.id)
+
+console.log(getDoc)
+
+const docs = await db.allDocs()
+
+console.log(docs)
+```
+
+## Features
+
+All working plugins are included in the main export of PouchDB for Deno.
 
 **Out-of-the-box:**
 
@@ -25,6 +40,28 @@ All working plugins are included in PouchDB for Deno.
 - PouchDB-Adapter-IndexedDB
 - PouchDB-Adapter-Memory
 
+## Documentation
+
+Nearly all documentation at [PouchDB.com](https://pouchdb.com/) applies to this library. Known differences are called out below.
+
+### Adapters
+
+Currently, the only adapters known to work in Deno are bootstrapped in this repository. However, new adapters written from scratch targeting Deno *should* work out-of-the-box when calling `PouchDB.plugin`. If new adapters written for Deno do not work, file issues and make sure to cross-link them in this repo and at [PouchDB's repo](https://github.com/pouchdb/pouchdb/issues).
+
+### IndexedDB
+
+Since Deno does not ship with an official IndexedDB interface, it must be polyfilled for the related PouchDB adapter to work. [IndexedDBShim](https://github.com/indexeddbshim/IndexedDBShim) makes this possible, on top of a WebSQL ponyfill written specifically for this codebase.
+
+Should Deno ever [implement this feature natively](https://github.com/denoland/deno/issues/1699), the polyfill will be dropped to improve performance.
+
+### LevelDOWN
+
+The only PouchDB adapter based on LevelDOWN known to work is the memory adapter. Local storage leveldown was tested and found to be incompatible. Other adapters threw errors from Skypack.dev CDN import; the message reported related to an out-of-date version of `readable-stream` NPM module.
+
+### Types
+
+Augmentation was extremely difficult to perform by directly referencing PouchDB types from the DefinitelyTyped project. Instead, the relevant types were copied from DefinitelyTyped and merged by hand.
+
 ## Plan
 
 - [x] Export PouchDB and types
@@ -34,7 +71,7 @@ All working plugins are included in PouchDB for Deno.
 - [x] Add in-memory adapter
 - [x] Add examples
 - [x] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
-- [ ] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
+- [x] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
 - [ ] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
 
 ## Why?
