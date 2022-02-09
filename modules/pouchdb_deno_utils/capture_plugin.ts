@@ -1,5 +1,11 @@
 // deno-lint-ignore-file no-explicit-any
-const globalAnyRef = (globalThis as any)
+type FakePouchDBPluginSink = (passedPlugin: any) => void
+
+interface FakePouchDB {
+  plugin: FakePouchDBPluginSink
+}
+
+const globalAnyRef: { PouchDB: FakePouchDB } = (globalThis as any)
 const pluginRefs: Record<string, any> = {}
 
 globalAnyRef.PouchDB = {
