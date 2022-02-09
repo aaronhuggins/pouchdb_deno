@@ -32,6 +32,10 @@ import './indexeddb/polyfill.ts'
 import './indexeddb/polyfill_memory.ts'
 ```
 
+## Documentation
+
+Please [see Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/API/indexedDB) for complete documentation; keep in mind that sync operations are not supported.
+
 ## How it works
 
 This library wraps IndexedDBShim into a callable function with work-arounds to prevent the shim from being added to the global scope. A WebSQL ponyfill is passed to the shim code and acts as the underlying SQLite API for IndexedDB.
