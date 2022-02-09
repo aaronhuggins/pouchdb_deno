@@ -62,18 +62,6 @@ The only PouchDB adapter based on LevelDOWN known to work is the memory adapter.
 
 Augmentation was extremely difficult to perform by directly referencing PouchDB types from the DefinitelyTyped project. Instead, the relevant types were copied from DefinitelyTyped and merged by hand.
 
-## Plan
-
-- [x] Export PouchDB and types
-- [x] Add WebSQL ponyfill
-- [x] Add IndexedDB polyfill on top of WebSQL
-- [x] Port IndexedDB PouchDB adapter
-- [x] Add in-memory adapter
-- [x] Add examples
-- [x] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
-- [x] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
-- [x] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
-
 ## Why?
 
 [I did this because I love PouchDB, thought I could get PouchDB working, and I was impatient.](https://github.com/pouchdb/pouchdb/issues/8158)
