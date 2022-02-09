@@ -1,6 +1,6 @@
 # PouchDB for Deno
 
-[PouchDB](https://github.com/pouchdb/pouchdb) for Deno, leveraging polyfill for IndexedDB based on SQLite.
+[PouchDB](https://github.com/pouchdb/pouchdb) for Deno, leveraging polyfill for [IndexedDB based on SQLite](https://github.com/aaronhuggins/indexeddb).
 
 ## Usage
 
@@ -72,7 +72,7 @@ Augmentation was extremely difficult to perform by directly referencing PouchDB 
 - [x] Add examples
 - [x] Add tests [1](https://github.com/aaronhuggins/pouchdb_deno/issues/1)
 - [x] Complete docs [2](https://github.com/aaronhuggins/pouchdb_deno/issues/2)
-- [ ] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
+- [x] Figure out versioning; [discussion](https://github.com/aaronhuggins/pouchdb_deno/issues/3)
 
 ## Why?
 
