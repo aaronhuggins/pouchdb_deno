@@ -1519,14 +1519,13 @@ export declare namespace PouchDB {
       cancel(): void;
     }
 
-    interface Replication<Content extends {}>
-      extends
-        ReplicationEventEmitter<
-          Content,
-          ReplicationResult<Content>,
-          ReplicationResultComplete<Content>
-        >,
-        Promise<ReplicationResultComplete<Content>> {
+    interface Replication<Content extends {}> extends
+      ReplicationEventEmitter<
+        Content,
+        ReplicationResult<Content>,
+        ReplicationResultComplete<Content>
+      >,
+      Promise<ReplicationResultComplete<Content>> {
     }
 
     interface ReplicationResult<Content extends {}> {
@@ -1551,14 +1550,13 @@ export declare namespace PouchDB {
       pull?: ReplicateOptions | undefined;
     }
 
-    interface Sync<Content extends {}>
-      extends
-        ReplicationEventEmitter<
-          Content,
-          SyncResult<Content>,
-          SyncResultComplete<Content>
-        >,
-        Promise<SyncResultComplete<Content>> {
+    interface Sync<Content extends {}> extends
+      ReplicationEventEmitter<
+        Content,
+        SyncResult<Content>,
+        SyncResultComplete<Content>
+      >,
+      Promise<SyncResultComplete<Content>> {
     }
 
     interface SyncResult<Content extends {}> {

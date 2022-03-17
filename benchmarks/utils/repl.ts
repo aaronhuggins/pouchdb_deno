@@ -1,28 +1,28 @@
-import { StringReader, copyN } from 'https://deno.land/std@0.100.0/io/mod.ts'
-import { sleep } from './sleep.ts'
+import { copyN, StringReader } from "https://deno.land/std@0.100.0/io/mod.ts";
+import { sleep } from "./sleep.ts";
 
 export class REPL {
   #process: Deno.Process<{
-    cmd: string[]
-    stdin: 'piped'
-  }>
+    cmd: string[];
+    stdin: "piped";
+  }>;
 
-  constructor (env?: Record<string, string>) {
+  constructor(env?: Record<string, string>) {
     this.#process = Deno.run({
-      cmd: ['deno', '--quiet'],
-      stdin: 'piped',
-      env: env
-    })
-    sleep(500)
+      cmd: ["deno", "--quiet"],
+      stdin: "piped",
+      env: env,
+    });
+    sleep(500);
   }
 
   send(code: string) {
-    const reader = new StringReader(code + '\n')
-    copyN(reader, this.#process.stdin, reader.length)
+    const reader = new StringReader(code + "\n");
+    copyN(reader, this.#process.stdin, reader.length);
   }
 
-  async close () {
-    this.send('close()')
-    return await this.#process.status()
+  async close() {
+    this.send("close()");
+    return await this.#process.status();
   }
 }

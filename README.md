@@ -1,26 +1,27 @@
 # PouchDB for Deno
 
-[PouchDB](https://github.com/pouchdb/pouchdb) for Deno, leveraging polyfill for [IndexedDB based on SQLite](https://github.com/aaronhuggins/indexeddb).
+[PouchDB](https://github.com/pouchdb/pouchdb) for Deno, leveraging polyfill for
+[IndexedDB based on SQLite](https://github.com/aaronhuggins/indexeddb).
 
 ## Usage
 
 ```typescript
-import PouchDB from 'https://deno.land/x/pouchdb_deno@v1.0.0-PouchDB+7.2.2/modules/pouchdb/mod.ts'
+import PouchDB from "https://deno.land/x/pouchdb_deno@v1.0.0-PouchDB+7.2.2/modules/pouchdb/mod.ts";
 
 // Use the 'idb' afapter for IndexedDB and persistence to disk.
-const db = new PouchDB('mydb', { adapter: 'idb' })
-const doc = { hello: 'world' }
-const result = await db.post(doc)
+const db = new PouchDB("mydb", { adapter: "idb" });
+const doc = { hello: "world" };
+const result = await db.post(doc);
 
-console.log(result)
+console.log(result);
 
-const getDoc = await db.get(result.id)
+const getDoc = await db.get(result.id);
 
-console.log(getDoc)
+console.log(getDoc);
 
-const docs = await db.allDocs()
+const docs = await db.allDocs();
 
-console.log(docs)
+console.log(docs);
 ```
 
 ## Features
@@ -42,25 +43,40 @@ All working plugins are included in the main export of PouchDB for Deno.
 
 ## Documentation
 
-Nearly all documentation at [PouchDB.com](https://pouchdb.com/) applies to this library. Known differences are called out below.
+Nearly all documentation at [PouchDB.com](https://pouchdb.com/) applies to this
+library. Known differences are called out below.
 
 ### Adapters
 
-Currently, the only adapters known to work in Deno are bootstrapped in this repository. However, new adapters written from scratch targeting Deno *should* work out-of-the-box when calling `PouchDB.plugin`. If new adapters written for Deno do not work, file issues and make sure to cross-link them in this repo and at [PouchDB's repo](https://github.com/pouchdb/pouchdb/issues).
+Currently, the only adapters known to work in Deno are bootstrapped in this
+repository. However, new adapters written from scratch targeting Deno _should_
+work out-of-the-box when calling `PouchDB.plugin`. If new adapters written for
+Deno do not work, file issues and make sure to cross-link them in this repo and
+at [PouchDB's repo](https://github.com/pouchdb/pouchdb/issues).
 
 ### IndexedDB
 
-Since Deno does not ship with an official IndexedDB interface, it must be polyfilled for the related PouchDB adapter to work. [IndexedDBShim](https://github.com/indexeddbshim/IndexedDBShim) makes this possible, on top of a WebSQL ponyfill written specifically for this codebase.
+Since Deno does not ship with an official IndexedDB interface, it must be
+polyfilled for the related PouchDB adapter to work.
+[IndexedDBShim](https://github.com/indexeddbshim/IndexedDBShim) makes this
+possible, on top of a WebSQL ponyfill written specifically for this codebase.
 
-Should Deno ever [implement this feature natively](https://github.com/denoland/deno/issues/1699), the polyfill will be dropped to improve performance.
+Should Deno ever
+[implement this feature natively](https://github.com/denoland/deno/issues/1699),
+the polyfill will be dropped to improve performance.
 
 ### LevelDOWN
 
-The only PouchDB adapter based on LevelDOWN known to work is the memory adapter. Local storage leveldown was tested and found to be incompatible. Other adapters threw errors from Skypack.dev CDN import; the message reported related to an out-of-date version of `readable-stream` NPM module.
+The only PouchDB adapter based on LevelDOWN known to work is the memory adapter.
+Local storage leveldown was tested and found to be incompatible. Other adapters
+threw errors from Skypack.dev CDN import; the message reported related to an
+out-of-date version of `readable-stream` NPM module.
 
 ### Types
 
-Augmentation was extremely difficult to perform by directly referencing PouchDB types from the DefinitelyTyped project. Instead, the relevant types were copied from DefinitelyTyped and merged by hand.
+Augmentation was extremely difficult to perform by directly referencing PouchDB
+types from the DefinitelyTyped project. Instead, the relevant types were copied
+from DefinitelyTyped and merged by hand.
 
 ## Why?
 

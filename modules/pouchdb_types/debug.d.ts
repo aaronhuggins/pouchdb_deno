@@ -16,40 +16,40 @@ export default debug;
 export as namespace debug;
 
 declare namespace debug {
-    interface Debug {
-        (namespace: string): Debugger;
-        coerce: (val: any) => any;
-        disable: () => string;
-        enable: (namespaces: string) => void;
-        enabled: (namespaces: string) => boolean;
-        formatArgs: (this: Debugger, args: any[]) => void;
-        log: (...args: any[]) => any;
-        selectColor: (namespace: string) => string | number;
-        humanize: typeof import('./ms.d.ts');
+  interface Debug {
+    (namespace: string): Debugger;
+    coerce: (val: any) => any;
+    disable: () => string;
+    enable: (namespaces: string) => void;
+    enabled: (namespaces: string) => boolean;
+    formatArgs: (this: Debugger, args: any[]) => void;
+    log: (...args: any[]) => any;
+    selectColor: (namespace: string) => string | number;
+    humanize: typeof import("./ms.d.ts");
 
-        names: RegExp[];
-        skips: RegExp[];
+    names: RegExp[];
+    skips: RegExp[];
 
-        formatters: Formatters;
-    }
+    formatters: Formatters;
+  }
 
-    type IDebug = Debug;
+  type IDebug = Debug;
 
-    interface Formatters {
-        [formatter: string]: (v: any) => string;
-    }
+  interface Formatters {
+    [formatter: string]: (v: any) => string;
+  }
 
-    type IDebugger = Debugger;
+  type IDebugger = Debugger;
 
-    interface Debugger {
-        (formatter: any, ...args: any[]): void;
+  interface Debugger {
+    (formatter: any, ...args: any[]): void;
 
-        color: string;
-        diff: number;
-        enabled: boolean;
-        log: (...args: any[]) => any;
-        namespace: string;
-        destroy: () => boolean;
-        extend: (namespace: string, delimiter?: string) => Debugger;
-    }
+    color: string;
+    diff: number;
+    enabled: boolean;
+    log: (...args: any[]) => any;
+    namespace: string;
+    destroy: () => boolean;
+    extend: (namespace: string, delimiter?: string) => Debugger;
+  }
 }
