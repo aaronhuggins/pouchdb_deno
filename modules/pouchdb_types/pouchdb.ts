@@ -696,6 +696,18 @@ export declare namespace PouchDB {
       name?: string,
       options?: Configuration.DatabaseConfiguration,
     ): Database<Content> & PluginProps;
+    new <Content extends {}>(
+      name: string | null,
+      options: HttpAdapter.HttpAdapterConfiguration,
+    ): Database<Content> & PluginProps;
+    new <Content extends {}>(
+      name: string | null,
+      options: MemoryAdapter.MemoryAdapterConfiguration,
+    ): Database<Content> & PluginProps;
+    new <Content extends {}>(
+      name: string | null,
+      options: IdbAdapter.IdbAdapterConfiguration,
+    ): Database<Content> & PluginProps;
 
     /**
      * The returned object is a constructor function that works the same as PouchDB,
@@ -705,6 +717,24 @@ export declare namespace PouchDB {
       new <Content extends {} = {}>(
         name?: string,
         options?: Configuration.DatabaseConfiguration,
+      ): Database<Content> & PluginProps;
+    };
+    defaults(options: HttpAdapter.HttpAdapterConfiguration): {
+      new <Content extends {} = {}>(
+        name?: string,
+        options?: HttpAdapter.HttpAdapterConfiguration,
+      ): Database<Content> & PluginProps;
+    };
+    defaults(options: MemoryAdapter.MemoryAdapterConfiguration): {
+      new <Content extends {} = {}>(
+        name?: string,
+        options?: MemoryAdapter.MemoryAdapterConfiguration,
+      ): Database<Content> & PluginProps;
+    };
+    defaults(options: IdbAdapter.IdbAdapterConfiguration): {
+      new <Content extends {} = {}>(
+        name?: string,
+        options?: IdbAdapter.IdbAdapterConfiguration,
       ): Database<Content> & PluginProps;
     };
   }
@@ -1032,13 +1062,6 @@ export declare namespace PouchDB {
     }
   }
 
-  interface Static {
-    new <Content extends {}>(
-      name: string | null,
-      options: HttpAdapter.HttpAdapterConfiguration,
-    ): Database<Content>;
-  }
-
   // IndexedDB adapter augmentation
 
   namespace Core {
@@ -1070,20 +1093,6 @@ export declare namespace PouchDB {
     }
   }
 
-  interface Static<PluginProps extends object = {}> extends EventEmitter {
-    new <Content extends {}>(
-      name: string | null,
-      options: IdbAdapter.IdbAdapterConfiguration,
-    ): Database<Content> & PluginProps;
-
-    defaults(options: IdbAdapter.IdbAdapterConfiguration): {
-      new <Content extends {} = {}>(
-        name?: string,
-        options?: IdbAdapter.IdbAdapterConfiguration,
-      ): Database<Content> & PluginProps;
-    };
-  }
-
   // Memory adapter augmentation
 
   namespace MemoryAdapter {
@@ -1091,13 +1100,6 @@ export declare namespace PouchDB {
       extends Configuration.RemoteDatabaseConfiguration {
       adapter: "memory";
     }
-  }
-
-  interface Static {
-    new <Content extends {}>(
-      name: string | null,
-      options: MemoryAdapter.MemoryAdapterConfiguration,
-    ): Database<Content>;
   }
 
   // Find plugin augmentation
