@@ -1,4 +1,4 @@
-import PouchDB from "https://deno.land/x/pouchdb_deno@v1.0.0-PouchDB+7.2.2/modules/pouchdb/mod.ts";
+import PouchDB from "../modules/pouchdb/mod.ts";
 
 const db = new PouchDB("mydb", { adapter: "memory" });
 const doc = { hello: "world" };
