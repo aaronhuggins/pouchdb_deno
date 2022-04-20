@@ -56,8 +56,8 @@ at [PouchDB's repo](https://github.com/pouchdb/pouchdb/issues).
 
 ### IndexedDB
 
-All options work as documented by the PouchDB, with two subtle differences and
-an addition.
+All options work as documented by the PouchDB, with two subtle differences and a
+new option just for Deno.
 
 - Database names are not prefixed with `_pouch_` in Deno like they are on web
 - `prefix`: Takes a string argument, and can be used exactly like the LevelDB
