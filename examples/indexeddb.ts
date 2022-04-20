@@ -1,6 +1,10 @@
-import PouchDB from "https://deno.land/x/pouchdb_deno@v1.0.0-PouchDB+7.2.2/modules/pouchdb/mod.ts";
+import PouchDB from "../modules/pouchdb/mod.ts";
 
-const db = new PouchDB("mydb", { adapter: "idb" });
+const db = new PouchDB("mydb", {
+  adapter: "idb",
+  prefix: "./user_db/",
+  systemPath: "./system_db/",
+});
 const doc = { hello: "world" };
 const result = await db.post(doc);
 
