@@ -1056,15 +1056,32 @@ export declare namespace PouchDB {
        * Only works in Firefox 26+.
        */
       storage?: "persistent" | "temporary" | undefined;
+      /**
+       * Configure the directory path for IndexedDBShim `__sysdb__.sqlite`.
+       *
+       * Only applies to the first adapter call; subsequent calls will
+       * not change the path for the system db file.
+       *
+       * Only works on module aaronhuggins/indexeddb for Deno;
+       * will be removed when Deno implements IndexedDB natively.
+       */
+      systemPath?: string;
       adapter: "idb";
     }
   }
 
-  interface Static {
+  interface Static<PluginProps extends object = {}> extends EventEmitter {
     new <Content extends {}>(
       name: string | null,
       options: IdbAdapter.IdbAdapterConfiguration,
-    ): Database<Content>;
+    ): Database<Content> & PluginProps;
+
+    defaults(options: IdbAdapter.IdbAdapterConfiguration): {
+      new <Content extends {} = {}>(
+        name?: string,
+        options?: IdbAdapter.IdbAdapterConfiguration,
+      ): Database<Content> & PluginProps;
+    };
   }
 
   // Memory adapter augmentation
