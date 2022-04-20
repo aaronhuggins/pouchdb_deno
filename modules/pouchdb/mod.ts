@@ -18,3 +18,4 @@ PouchDBDeno.plugin(IDBPouch)
   .plugin(replication);
 
 export default PouchDBDeno;
+export type { PouchDB };
