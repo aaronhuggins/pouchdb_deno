@@ -21,7 +21,8 @@ let hasIndexedDB = false;
 function IndexedDBDenoWrapper(pouchDb: PouchDB.Static): void {
   IndexedDBPouchDeno(pouchDb);
 
-  const adapterIndexedDB: IndexedDBSignature = (pouchDb as any).adapters.indexeddb;
+  const adapterIndexedDB: IndexedDBSignature =
+    (pouchDb as any).adapters.indexeddb;
   const validIndexedDB = adapterIndexedDB.valid;
 
   adapterIndexedDB.use_prefix = false;

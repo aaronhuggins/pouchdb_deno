@@ -4,6 +4,7 @@ import mapreduce from "https://cdn.skypack.dev/pin/pouchdb-mapreduce@v7.3.0-IEG2
 import replication from "https://cdn.skypack.dev/pin/pouchdb-replication@v7.3.0-1sg1NWcwDf6gKFeXsMmq/mode=imports/optimized/pouchdb-replication.js";
 import IDBPouch from "../pouchdb_adapter_idb/mod.ts";
 import MemoryPouch from "../pouchdb_adapter_memory/mod.ts";
+import IndexedDBPouch from "../pouchdb_adapter_indexeddb/mod.ts";
 import find from "../pouchdb_adapter_find/mod.ts";
 import type { PouchDB } from "../pouchdb_types/pouchdb.ts";
 
@@ -13,6 +14,7 @@ const PouchDBDeno: PouchDB.Static = PouchDBImpl as any;
 PouchDBDeno.plugin(IDBPouch)
   .plugin(HttpPouch)
   .plugin(MemoryPouch)
+  .plugin(IndexedDBPouch)
   .plugin(find)
   .plugin(mapreduce)
   .plugin(replication);
