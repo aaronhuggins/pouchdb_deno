@@ -1,7 +1,7 @@
 import PouchDB from "../modules/pouchdb/mod.ts";
 
 const db = new PouchDB("mydb", {
-  adapter: "idb",
+  adapter: "indexeddb",
   prefix: "./user_db/",
   systemPath: "./system_db/",
 });
