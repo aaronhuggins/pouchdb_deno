@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.125.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.136.0/testing/asserts.ts";
 
 Deno.test("capturePlugin", async ({ step }) => {
   // deno-lint-ignore no-explicit-any
