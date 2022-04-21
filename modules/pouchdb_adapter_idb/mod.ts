@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
 import "https://deno.land/x/indexeddb@v1.2.0/polyfill.ts";
 import { createIndexedDB } from "https://deno.land/x/indexeddb@v1.2.0/lib/shim.ts";
-import IDBPouchImpl from "https://cdn.skypack.dev/pin/pouchdb-adapter-idb@v7.2.2-en9WxKy5vepCFPLf3Coc/mode=imports/optimized/pouchdb-adapter-idb.js";
+import IDBPouchImpl from "https://cdn.skypack.dev/pin/pouchdb-adapter-idb@v7.3.0-zIdGq675NuTdgkAjGFSh/mode=imports/optimized/pouchdb-adapter-idb.js";
 import type { PouchDB } from "../pouchdb_types/pouchdb.ts";
 
 type IDBSignature = ((opts: any, cb: any) => void) & {
