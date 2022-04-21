@@ -708,6 +708,10 @@ export declare namespace PouchDB {
       name: string | null,
       options: IdbAdapter.IdbAdapterConfiguration,
     ): Database<Content> & PluginProps;
+    new <Content extends {}>(
+      name: string | null,
+      options: IndexedDBAdapter.IndexedDBAdapterConfiguration,
+    ): Database<Content> & PluginProps;
 
     /**
      * The returned object is a constructor function that works the same as PouchDB,
@@ -735,6 +739,12 @@ export declare namespace PouchDB {
       new <Content extends {} = {}>(
         name?: string,
         options?: IdbAdapter.IdbAdapterConfiguration,
+      ): Database<Content> & PluginProps;
+    };
+    defaults(options: IndexedDBAdapter.IndexedDBAdapterConfiguration,): {
+      new <Content extends {} = {}>(
+        name?: string,
+        options?: IndexedDBAdapter.IndexedDBAdapterConfiguration,
       ): Database<Content> & PluginProps;
     };
   }
@@ -1091,6 +1101,23 @@ export declare namespace PouchDB {
       systemPath?: string;
       adapter: "idb";
     }
+  }
+
+  namespace IndexedDBAdapter {
+    interface IndexedDBAdapterConfiguration
+      extends Configuration.LocalDatabaseConfiguration {
+        /**
+         * Configure the directory path for IndexedDBShim `__sysdb__.sqlite`.
+         *
+         * Only applies to the first adapter call; subsequent calls will
+         * not change the path for the system db file.
+         *
+         * Only works on module aaronhuggins/indexeddb for Deno;
+         * will be removed when Deno implements IndexedDB natively.
+         */
+        systemPath?: string;
+        adapter: "indexeddb";
+      }
   }
 
   // Memory adapter augmentation
