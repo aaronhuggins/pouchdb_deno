@@ -61,7 +61,7 @@ new option just for Deno.
 
 - Database names are not prefixed with `_pouch_` in Deno like they are on web
 - `prefix`: Takes a string argument, and can be used exactly like the LevelDB
-  adapter to provide a directory for the database(s)
+  adapter to provide a directory for the database(s); **trailing slash is required**
 - `systemPath` (Deno-specific flag): The IndexedDB implementation (see below)
   uses a "system" database `__sysdb__` for metadata about databases; supply a
   path to store this database in a custom directory
