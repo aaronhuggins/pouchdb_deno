@@ -6,7 +6,7 @@
 ## Usage
 
 ```typescript
-import PouchDB from "https://deno.land/x/pouchdb_deno@v2.0.0-PouchDB+7.2.2/modules/pouchdb/mod.ts";
+import PouchDB from "https://deno.land/x/pouchdb_deno@2.0.0-PouchDB+7.3.0/modules/pouchdb/mod.ts";
 
 // Use the 'idb' afapter for IndexedDB and persistence to disk.
 const db = new PouchDB("mydb", { adapter: "idb" });
@@ -38,6 +38,7 @@ All working plugins are included in the main export of PouchDB for Deno.
 
 **With work-arounds:**
 
+- PouchDB-Adapter-IDB
 - PouchDB-Adapter-IndexedDB
 - PouchDB-Adapter-Memory
 
@@ -45,6 +46,13 @@ All working plugins are included in the main export of PouchDB for Deno.
 
 Nearly all documentation at [PouchDB.com](https://pouchdb.com/) applies to this
 library. Known differences are called out below.
+
+> **WARNING**: The new `indexeddb` adapter is in a beta state. Use with caution.
+> Additionally, this new adapter has an underling IndexedDB schema which is
+> incompatible with the older `idb` adapter. If switching adapters and data is
+> needed, it will need to be migrated manually at this time. It is unknown if
+> automatic migration from `idb` to `indexeddb` adapter will be supported in a
+> future release.
 
 ### Adapters
 
