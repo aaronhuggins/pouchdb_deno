@@ -1693,4 +1693,57 @@ export declare namespace PouchDB {
       callback?: Core.Callback<Replication.SyncResultComplete<Content>>,
     ): Replication.Sync<Content>;
   }
+
+  namespace Upsert {
+    type DiffFunc<T> = (doc: T) => (Core.Document<T> | false);
+
+    interface Response extends Core.Response {
+      updated: boolean;
+    }
+  }
+
+  interface Database<Content extends {} = {}> {
+    upsert<Model extends {} = {}>(
+      docId: string,
+      diffFunc: Upsert.DiffFunc<Core.Document<Content & Model>>,
+    ): Promise<Upsert.Response>;
+    upsert<Model extends {} = {}>(
+      docId: string,
+      diffFunc: Upsert.DiffFunc<Core.Document<Content & Model>>,
+      cb: Core.Callback<Upsert.Response>,
+    ): void;
+
+    upsertAndMerge<Model extends {} = {}>(
+      doc: Core.Document<Content & Model>,
+    ): Promise<Upsert.Response>;
+    upsertAndMerge<Model extends {} = {}>(
+      doc: Core.Document<Content & Model>,
+      cb: Core.Callback<Upsert.Response>,
+    ): void;
+
+    upsertAndReplace<Model extends {} = {}>(
+      doc: Core.Document<Content & Model>,
+    ): Promise<Upsert.Response>;
+    upsertAndReplace<Model extends {} = {}>(
+      doc: Core.Document<Content & Model>,
+      cb: Core.Callback<Upsert.Response>,
+    ): void;
+
+    putIfNotExists<Model extends {} = {}>(
+      doc: Core.Document<Content & Model>,
+    ): Promise<Upsert.Response>;
+    putIfNotExists<Model extends {} = {}>(
+      doc: Core.Document<Content & Model>,
+      cb: Core.Callback<Upsert.Response>,
+    ): void;
+    putIfNotExists<Model extends {} = {}>(
+      docId: string,
+      doc: Core.Document<Content & Model>,
+    ): Promise<Upsert.Response>;
+    putIfNotExists<Model extends {} = {}>(
+      docId: string,
+      doc: Core.Document<Content & Model>,
+      cb: Core.Callback<Upsert.Response>,
+    ): void;
+  }
 }

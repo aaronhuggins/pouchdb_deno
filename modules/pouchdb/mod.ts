@@ -6,6 +6,7 @@ import IDBPouch from "../pouchdb_adapter_idb/mod.ts";
 import MemoryPouch from "../pouchdb_adapter_memory/mod.ts";
 import IndexedDBPouch from "../pouchdb_adapter_indexeddb/mod.ts";
 import find from "../pouchdb_plugin_find/mod.ts";
+import upsert from "../pouchdb_plugin_upsert/mod.ts";
 import type { PouchDB } from "../pouchdb_types/pouchdb.ts";
 
 // deno-lint-ignore no-explicit-any
@@ -16,6 +17,7 @@ PouchDBDeno.plugin(IDBPouch)
   .plugin(MemoryPouch)
   .plugin(IndexedDBPouch)
   .plugin(find)
+  .plugin(upsert)
   .plugin(mapreduce)
   .plugin(replication);
 
