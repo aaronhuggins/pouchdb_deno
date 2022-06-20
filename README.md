@@ -6,9 +6,9 @@
 ## Usage
 
 ```typescript
-import PouchDB from "https://deno.land/x/pouchdb_deno@2.0.0-PouchDB+7.3.0/modules/pouchdb/mod.ts";
+import PouchDB from "https://deno.land/x/pouchdb_deno@2.1.0-PouchDB+7.3.0/modules/pouchdb/mod.ts";
 
-// Use the 'idb' afapter for IndexedDB and persistence to disk.
+// Use the 'idb' adapter for IndexedDB and persistence to disk.
 const db = new PouchDB("mydb", { adapter: "idb" });
 const doc = { hello: "world" };
 const result = await db.post(doc);
@@ -42,6 +42,10 @@ All working plugins are included in the main export of PouchDB for Deno.
 - PouchDB-Adapter-IndexedDB
 - PouchDB-Adapter-Memory
 
+**Original:**
+
+- PouchDB-Upsert plugin
+
 ## Documentation
 
 Nearly all documentation at [PouchDB.com](https://pouchdb.com/) applies to this
@@ -64,8 +68,8 @@ at [PouchDB's repo](https://github.com/pouchdb/pouchdb/issues).
 
 ### IndexedDB
 
-All options work as documented by the PouchDB, with two subtle differences and a
-new option just for Deno. This applies to both `adapter: "idb"` and
+All options work as documented by PouchDB, with two subtle differences and a new
+option just for Deno. This applies to both `adapter: "idb"` and
 `adapter: "indexeddb"`.
 
 - Database names are not prefixed with `_pouch_` in Deno like they are on web
@@ -89,8 +93,8 @@ the polyfill will be dropped to improve performance.
 
 The only PouchDB adapter based on LevelDOWN known to work is the memory adapter.
 Local storage leveldown was tested and found to be incompatible. Other adapters
-threw errors from Skypack.dev CDN import; the message reported related to an
-out-of-date version of `readable-stream` NPM module.
+threw errors from Skypack.dev CDN import; the message reported was related to an
+out-of-date version of the `readable-stream` NPM module.
 
 ### Types
 
