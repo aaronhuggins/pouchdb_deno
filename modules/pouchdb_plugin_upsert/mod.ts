@@ -126,6 +126,7 @@ function upsertAndReplace<Model extends {} = {}>(
   promise.then((response): any => cb(null, response), cb as any);
 }
 
+/** Perform a put of a document only if the document does not already exist. */
 function putIfNotExists<Model extends {} = {}>(
   this: PouchDB.Database,
   doc: Document<Model>,

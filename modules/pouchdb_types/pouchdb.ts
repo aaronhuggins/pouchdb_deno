@@ -1703,6 +1703,7 @@ export declare namespace PouchDB {
   }
 
   interface Database<Content extends {} = {}> {
+    /** Perform an upsert of a document using a difference function to provide the upsert algorithm. */
     upsert<Model extends {} = {}>(
       docId: string,
       diffFunc: Upsert.DiffFunc<Core.Document<Content & Model>>,
@@ -1713,6 +1714,7 @@ export declare namespace PouchDB {
       cb: Core.Callback<Upsert.Response>,
     ): void;
 
+    /** Perform an upsert of a document using a shallow merge algorithm. Use `db.upsert` for more complex operations. */
     upsertAndMerge<Model extends {} = {}>(
       doc: Core.Document<Content & Model>,
     ): Promise<Upsert.Response>;
@@ -1721,6 +1723,7 @@ export declare namespace PouchDB {
       cb: Core.Callback<Upsert.Response>,
     ): void;
 
+    /** Perform an upsert of a document with a simple replace if exists. Use `db.upsert` for more complex operations. */
     upsertAndReplace<Model extends {} = {}>(
       doc: Core.Document<Content & Model>,
     ): Promise<Upsert.Response>;
@@ -1729,6 +1732,7 @@ export declare namespace PouchDB {
       cb: Core.Callback<Upsert.Response>,
     ): void;
 
+    /** Perform a put of a document only if the document does not already exist. */
     putIfNotExists<Model extends {} = {}>(
       doc: Core.Document<Content & Model>,
     ): Promise<Upsert.Response>;
