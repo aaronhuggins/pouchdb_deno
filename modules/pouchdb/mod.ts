@@ -5,7 +5,7 @@ import replication from "https://cdn.skypack.dev/pin/pouchdb-replication@v7.3.0-
 import IDBPouch from "../pouchdb_adapter_idb/mod.ts";
 import MemoryPouch from "../pouchdb_adapter_memory/mod.ts";
 import IndexedDBPouch from "../pouchdb_adapter_indexeddb/mod.ts";
-import find from "../pouchdb_adapter_find/mod.ts";
+import find from "../pouchdb_plugin_find/mod.ts";
 import type { PouchDB } from "../pouchdb_types/pouchdb.ts";
 
 // deno-lint-ignore no-explicit-any
