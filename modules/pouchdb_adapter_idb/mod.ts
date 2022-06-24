@@ -21,7 +21,6 @@ function IDBDenoWrapper(pouchDb: PouchDB.Static): void {
   adapterIdb.use_prefix = false;
 
   function idb(
-    this: any,
     opts: PouchDB.IdbAdapter.IdbAdapterConfiguration,
     callback: any,
   ) {
