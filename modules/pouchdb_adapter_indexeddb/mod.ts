@@ -1,6 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
-import "https://deno.land/x/indexeddb@1.3.3/polyfill.ts";
-import { createIndexedDB } from "https://deno.land/x/indexeddb@1.3.3/lib/shim.ts";
+import "https://deno.land/x/indexeddb@1.3.4/polyfill.ts";
+import { createIndexedDB } from "https://deno.land/x/indexeddb@1.3.4/lib/shim.ts";
 import { capturePlugin } from "../pouchdb_deno_utils/capture_plugin.ts";
 import "https://cdn.skypack.dev/pin/pouchdb@v7.3.0-bcA2ZAvx5a5vy7YRYZRz/mode=imports/unoptimized/dist/pouchdb.indexeddb.js";
 import type { PouchDB } from "../pouchdb_types/pouchdb.ts";
